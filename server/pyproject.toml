@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = "create unique travel experiences"
+authors = ["abhishekY2401 <abhiyd2401@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.0"
+uvicorn = {extras = ["standard"], version = "^0.30.5"}
+pydantic = "^2.8.2"
+python-multipart = "^0.0.9"
+pymongo = "^4.8.0"
+motor = "^3.5.1"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+orjson = "^3.10.7"
+bcrypt = "^4.2.0"
+
+[tool.poetry.scripts]
+start = "app:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
