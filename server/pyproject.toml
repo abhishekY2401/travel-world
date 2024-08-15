@@ -13,11 +13,13 @@ uvicorn = {extras = ["standard"], version = "^0.30.5"}
 pydantic = "^2.8.2"
 python-multipart = "^0.0.9"
 pymongo = "^4.8.0"
-motor = "^3.5.1"
+motor = {extras = ["srv"], version = "^3.5.1"}
 python-jose = "^3.3.0"
 passlib = "^1.7.4"
 orjson = "^3.10.7"
 bcrypt = "^4.2.0"
+rich = "^13.7.1"
+sqlalchemy = "^2.0.32"
 
 [tool.poetry.scripts]
 start = "app:main"
