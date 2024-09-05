@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.api.api import api_router
 from app.core.config import settings
+import uvicorn
 
 
 @asynccontextmanager
@@ -18,7 +19,7 @@ app = FastAPI(
 )
 
 # Setting all CORS enabled origin
-if settings.BACKEND_CORS_ORIGIN:
+if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
         CORSMiddleware,
         # Trailing slash causes CORS failures from these supported domains
@@ -26,4 +27,13 @@ if settings.BACKEND_CORS_ORIGIN:
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
+    )
+
+# Starting the app using uvicorn
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",  # Import path to the FastAPI app instance
+        host="0.0.0.0",  # Makes the app accessible externally
+        port=8000,  # You can set any port here
+        reload=True  # Enables auto-reloading (useful during development)
     )
